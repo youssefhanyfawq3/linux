@@ -1,0 +1,5 @@
+Phase 2: WAF Detection
+Date: 2026-06-04 18:15
+Domain: clearme.com
+
+[MEDIUM] https://clearme.com   https://clearme.com/?ijxyvkyq=%3Cscript%3Ealert%28%22XSS%22%29%3B%3C%2Fscript%3E&jqdnagwg=UNION+SELECT+ALL+FROM+information_schema+AND+%22+or+SLEEP%285%29+or+%22&wypvuksc=..%2F..%2Fetc%2Fpasswd (Cloudflare)   Cloudflare
