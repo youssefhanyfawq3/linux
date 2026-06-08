@@ -1,0 +1,97 @@
+LaunchDarkly REST API - Categories with {id} Parameter
+========================================================
+Source: https://launchdarkly.com/docs/api
+
+Categories listed below have at least one endpoint containing the literal
+`{id}` path parameter in their URL.
+
+---
+Category: access-tokens
+  {id} appears in:
+    GET    /api/v2/tokens/{id}
+    PATCH  /api/v2/tokens/{id}
+    DELETE /api/v2/tokens/{id}
+    POST   /api/v2/tokens/{id}/reset
+
+---
+Category: account-members
+  {id} appears in:
+    GET    /api/v2/members/{id}
+    PATCH  /api/v2/members/{id}
+    DELETE /api/v2/members/{id}
+    POST   /api/v2/members/{id}/teams
+
+---
+Category: approvals
+  {id} appears in:
+    GET    /api/v2/approval-requests/{id}
+    PATCH  /api/v2/approval-requests/{id}
+    DELETE /api/v2/approval-requests/{id}
+    POST   /api/v2/approval-requests/{id}/apply
+    POST   /api/v2/approval-requests/{id}/reviews
+    GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}
+    PATCH  /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}
+    DELETE /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}
+    POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/apply
+    POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/reviews
+
+---
+Category: audit-log
+  {id} appears in:
+    GET    /api/v2/auditlog/{id}
+
+---
+Category: feature-flags
+  {id} appears in:
+    GET    /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}/{id}
+    PATCH  /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}/{id}
+    DELETE /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}/{id}
+
+---
+Category: contexts
+  {id} appears in:
+    GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/{id}
+    DELETE /api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/{id}
+
+---
+Category: scheduled-changes
+  {id} appears in:
+    GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes/{id}
+    PATCH  /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes/{id}
+    DELETE /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes/{id}
+
+---
+Category: flag-triggers
+  {id} appears in:
+    GET    /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id}
+    PATCH  /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id}
+    DELETE /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id}
+
+---
+Category: persistent-store-integrations-beta
+  {id} appears in:
+    GET    /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}
+    PATCH  /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}
+    DELETE /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}
+    POST   /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}/validate
+
+---
+Category: other
+  {id} appears in:
+    GET    /api/v2/webhooks/{id}
+    PATCH  /api/v2/webhooks/{id}
+    DELETE /api/v2/webhooks/{id}
+    DELETE /api/v2/account/ip-allowlist/{id}
+    PATCH  /api/v2/account/ip-allowlist/{id}
+    GET    /api/v2/account/relay-auto-configs/{id}
+    PATCH  /api/v2/account/relay-auto-configs/{id}
+    DELETE /api/v2/account/relay-auto-configs/{id}
+    POST   /api/v2/account/relay-auto-configs/{id}/reset
+    GET    /api/v2/destinations/{projectKey}/{environmentKey}/{id}
+    PATCH  /api/v2/destinations/{projectKey}/{environmentKey}/{id}
+    DELETE /api/v2/destinations/{projectKey}/{environmentKey}/{id}
+    GET    /api/v2/integrations/{integrationKey}/{id}
+    PATCH  /api/v2/integrations/{integrationKey}/{id}
+    DELETE /api/v2/integrations/{integrationKey}/{id}
+
+Categories with {id} parameter: 10 of 20

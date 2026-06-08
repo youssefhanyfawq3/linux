@@ -1,5 +1,0 @@
-Phase 4: Content Discovery
-Date: 2026-06-04 18:15
-Domain: clearme.com
-
-[INFO] No hidden paths discovered (or dirsearch was skipped)

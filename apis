@@ -1,0 +1,464 @@
+LaunchDarkly REST API Reference
+==================================
+Source: https://launchdarkly.com/docs/api
+
+---
+Category: access-tokens
+---
+  GET    /api/v2/tokens
+  POST   /api/v2/tokens
+  GET    /api/v2/tokens/{id}
+  PATCH  /api/v2/tokens/{id}
+  DELETE /api/v2/tokens/{id}
+  POST   /api/v2/tokens/{id}/reset
+
+---
+Category: account-members
+---
+  GET    /api/v2/members
+  POST   /api/v2/members
+  GET    /api/v2/members/{id}
+  PATCH  /api/v2/members
+  PATCH  /api/v2/members/{id}
+  DELETE /api/v2/members/{id}
+  POST   /api/v2/members/{id}/teams
+
+---
+Category: approvals
+---
+  GET    /api/v2/approval-requests
+  POST   /api/v2/approval-requests
+  GET    /api/v2/approval-requests/{id}
+  PATCH  /api/v2/approval-requests/{id}
+  DELETE /api/v2/approval-requests/{id}
+  POST   /api/v2/approval-requests/{id}/apply
+  POST   /api/v2/approval-requests/{id}/reviews
+  GET    /api/v2/approval-requests/projects/{projectKey}/settings
+  PATCH  /api/v2/approval-requests/projects/{projectKey}/settings
+  GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests
+  POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests
+  GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}
+  PATCH  /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}
+  DELETE /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}
+  POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/apply
+  POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests/{id}/reviews
+  POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/approval-requests-flag-copy
+
+---
+Category: audit-log
+---
+  GET    /api/v2/auditlog
+  POST   /api/v2/auditlog
+  GET    /api/v2/auditlog/{id}
+  POST   /api/v2/auditlog/counts
+
+---
+Category: custom-roles
+---
+  GET    /api/v2/roles
+  POST   /api/v2/roles
+  GET    /api/v2/roles/{customRoleKey}
+  PATCH  /api/v2/roles/{customRoleKey}
+  DELETE /api/v2/roles/{customRoleKey}
+
+---
+Category: environments
+---
+  GET    /api/v2/projects/{projectKey}/environments
+  POST   /api/v2/projects/{projectKey}/environments
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}
+  PATCH  /api/v2/projects/{projectKey}/environments/{environmentKey}
+  DELETE /api/v2/projects/{projectKey}/environments/{environmentKey}
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/apiKey
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/mobileKey
+
+---
+Category: feature-flags
+---
+  GET    /api/v2/flags/{projectKey}
+  POST   /api/v2/flags/{projectKey}
+  GET    /api/v2/flags/{projectKey}/{featureFlagKey}
+  PATCH  /api/v2/flags/{projectKey}/{featureFlagKey}
+  DELETE /api/v2/flags/{projectKey}/{featureFlagKey}
+  POST   /api/v2/flags/{projectKey}/{featureFlagKey}/copy
+  GET    /api/v2/flags/{projectKey}/{featureFlagKey}/dependent-flags
+  GET    /api/v2/flags/{projectKey}/{environmentKey}/{featureFlagKey}/dependent-flags
+  GET    /api/v2/flags/{projectKey}/{featureFlagKey}/expiring-targets/{environmentKey}
+  PATCH  /api/v2/flags/{projectKey}/{featureFlagKey}/expiring-targets/{environmentKey}
+  GET    /api/v2/flags/{projectKey}/{featureFlagKey}/expiring-user-targets/{environmentKey}
+  PATCH  /api/v2/flags/{projectKey}/{featureFlagKey}/expiring-user-targets/{environmentKey}
+  GET    /api/v2/flags/{projectKey}/{flagKey}/release
+  PATCH  /api/v2/flags/{projectKey}/{flagKey}/release
+  DELETE /api/v2/flags/{projectKey}/{flagKey}/release
+  GET    /api/v2/flag-status/{projectKey}/{featureFlagKey}
+  GET    /api/v2/flag-statuses/{projectKey}/{environmentKey}
+  GET    /api/v2/flag-statuses/{projectKey}/{environmentKey}/{featureFlagKey}
+  GET    /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}
+  POST   /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}
+  GET    /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}/{id}
+  PATCH  /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}/{id}
+  DELETE /api/v2/flag-links/projects/{projectKey}/flags/{featureFlagKey}/{id}
+
+---
+Category: projects
+---
+  GET    /api/v2/projects
+  POST   /api/v2/projects
+  GET    /api/v2/projects/{projectKey}
+  PATCH  /api/v2/projects/{projectKey}
+  DELETE /api/v2/projects/{projectKey}
+
+---
+Category: segments
+---
+  GET    /api/v2/segments/{projectKey}/{environmentKey}
+  POST   /api/v2/segments/{projectKey}/{environmentKey}
+  GET    /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}
+  PATCH  /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}
+  DELETE /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}
+  GET    /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/contexts/{contextKey}
+  POST   /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/contexts
+  GET    /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/exports/{exportID}
+  POST   /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/exports
+  GET    /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/imports/{importID}
+  POST   /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/imports
+  GET    /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/users/{userKey}
+  POST   /api/v2/segments/{projectKey}/{environmentKey}/{segmentKey}/users
+  GET    /api/v2/segments/{projectKey}/{segmentKey}/expiring-targets/{environmentKey}
+  PATCH  /api/v2/segments/{projectKey}/{segmentKey}/expiring-targets/{environmentKey}
+  GET    /api/v2/segments/{projectKey}/{segmentKey}/expiring-user-targets/{environmentKey}
+  PATCH  /api/v2/segments/{projectKey}/{segmentKey}/expiring-user-targets/{environmentKey}
+
+---
+Category: teams
+---
+  GET    /api/v2/teams
+  POST   /api/v2/teams
+  PATCH  /api/v2/teams
+  GET    /api/v2/teams/{teamKey}
+  PATCH  /api/v2/teams/{teamKey}
+  DELETE /api/v2/teams/{teamKey}
+  GET    /api/v2/teams/{teamKey}/maintainers
+  POST   /api/v2/teams/{teamKey}/members
+  GET    /api/v2/teams/{teamKey}/roles
+
+---
+Category: users
+---
+  GET    /api/v2/users/{projectKey}/{environmentKey}
+  GET    /api/v2/users/{projectKey}/{environmentKey}/{userKey}
+  DELETE /api/v2/users/{projectKey}/{environmentKey}/{userKey}
+  GET    /api/v2/users/{projectKey}/{environmentKey}/{userKey}/flags
+  GET    /api/v2/users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey}
+  PUT    /api/v2/users/{projectKey}/{environmentKey}/{userKey}/flags/{featureFlagKey}
+  GET    /api/v2/users/{projectKey}/{userKey}/expiring-user-targets/{environmentKey}
+  PATCH  /api/v2/users/{projectKey}/{userKey}/expiring-user-targets/{environmentKey}
+  GET    /api/v2/user-search/{projectKey}/{environmentKey}
+  GET    /api/v2/user-attributes/{projectKey}/{environmentKey}
+
+---
+Category: workflows
+---
+  GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows
+  POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows
+  GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows/{workflowId}
+  DELETE /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/workflows/{workflowId}
+
+---
+Category: contexts
+---
+  GET    /api/v2/projects/{projectKey}/context-kinds
+  PUT    /api/v2/projects/{projectKey}/context-kinds/{key}
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/context-attributes
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/context-attributes/{attributeName}
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/{id}
+  DELETE /api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/{id}
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/context-instances/search
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/{kind}/{key}
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/search
+  PUT    /api/v2/projects/{projectKey}/environments/{environmentKey}/contexts/{contextKind}/{contextKey}/flags/{featureFlagKey}
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/followers
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/flags/evaluate
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/segments/evaluate
+
+---
+Category: metrics
+---
+  GET    /api/v2/metrics/{projectKey}
+  POST   /api/v2/metrics/{projectKey}
+  GET    /api/v2/metrics/{projectKey}/{metricKey}
+  PATCH  /api/v2/metrics/{projectKey}/{metricKey}
+  DELETE /api/v2/metrics/{projectKey}/{metricKey}
+
+---
+Category: experiments
+---
+  GET    /api/v2/projects/{projectKey}/experiments
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}
+  PATCH  /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/experiments/{experimentKey}/iterations
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/holdouts
+  POST   /api/v2/projects/{projectKey}/environments/{environmentKey}/holdouts
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/holdouts/{holdoutKey}
+  PATCH  /api/v2/projects/{projectKey}/environments/{environmentKey}/holdouts/{holdoutKey}
+  GET    /api/v2/projects/{projectKey}/environments/{environmentKey}/holdouts/id/{holdoutId}
+
+---
+Category: scheduled-changes
+---
+  GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes
+  POST   /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes
+  GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes/{id}
+  PATCH  /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes/{id}
+  DELETE /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/scheduled-changes/{id}
+
+---
+Category: flag-triggers
+---
+  GET    /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}
+  POST   /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}
+  GET    /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id}
+  PATCH  /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id}
+  DELETE /api/v2/flags/{projectKey}/{featureFlagKey}/triggers/{environmentKey}/{id}
+
+---
+Category: ai-configs
+---
+  GET    /api/v2/projects/{projectKey}/ai-configs
+  POST   /api/v2/projects/{projectKey}/ai-configs
+  GET    /api/v2/projects/{projectKey}/ai-configs/{configKey}
+  PATCH  /api/v2/projects/{projectKey}/ai-configs/{configKey}
+  DELETE /api/v2/projects/{projectKey}/ai-configs/{configKey}
+  GET    /api/v2/projects/{projectKey}/ai-configs/{configKey}/targeting
+  PATCH  /api/v2/projects/{projectKey}/ai-configs/{configKey}/targeting
+  GET    /api/v2/projects/{projectKey}/ai-configs/{configKey}/metrics
+  GET    /api/v2/projects/{projectKey}/ai-configs/{configKey}/metrics-by-variation
+  GET    /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations/{variationKey}
+  PATCH  /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations/{variationKey}
+  DELETE /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations/{variationKey}
+  POST   /api/v2/projects/{projectKey}/ai-configs/{configKey}/variations
+  GET    /api/v2/projects/{projectKey}/ai-configs/quick-stats
+  GET    /api/v2/projects/{projectKey}/ai-configs/model-configs
+  POST   /api/v2/projects/{projectKey}/ai-configs/model-configs
+  GET    /api/v2/projects/{projectKey}/ai-configs/model-configs/{modelConfigKey}
+  DELETE /api/v2/projects/{projectKey}/ai-configs/model-configs/{modelConfigKey}
+  POST   /api/v2/projects/{projectKey}/ai-configs/model-configs/restricted
+  DELETE /api/v2/projects/{projectKey}/ai-configs/model-configs/restricted
+  GET    /api/v2/projects/{projectKey}/ai-configs/prompt-snippets
+  POST   /api/v2/projects/{projectKey}/ai-configs/prompt-snippets
+  GET    /api/v2/projects/{projectKey}/ai-configs/prompt-snippets/{snippetKey}
+  PATCH  /api/v2/projects/{projectKey}/ai-configs/prompt-snippets/{snippetKey}
+  DELETE /api/v2/projects/{projectKey}/ai-configs/prompt-snippets/{snippetKey}
+  GET    /api/v2/projects/{projectKey}/ai-configs/prompt-snippets/{snippetKey}/references
+  GET    /api/v2/projects/{projectKey}/ai-configs/prompt-snippets/{snippetKey}/versions
+  GET    /api/v2/projects/{projectKey}/agent-graphs
+  POST   /api/v2/projects/{projectKey}/agent-graphs
+  GET    /api/v2/projects/{projectKey}/agent-graphs/{graphKey}
+  PATCH  /api/v2/projects/{projectKey}/agent-graphs/{graphKey}
+  DELETE /api/v2/projects/{projectKey}/agent-graphs/{graphKey}
+  GET    /api/v2/projects/{projectKey}/agent-optimizations
+  POST   /api/v2/projects/{projectKey}/agent-optimizations
+  GET    /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}
+  PATCH  /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}
+  DELETE /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}
+  GET    /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}/results
+  POST   /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}/results
+  GET    /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}/all-results
+  GET    /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}/runs
+  GET    /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}/runs/{runId}/results
+  PATCH  /api/v2/projects/{projectKey}/agent-optimizations/{optimizationKey}/results/{resultId}
+  GET    /api/v2/projects/{projectKey}/ai-tools
+  POST   /api/v2/projects/{projectKey}/ai-tools
+  GET    /api/v2/projects/{projectKey}/ai-tools/{toolKey}
+  PATCH  /api/v2/projects/{projectKey}/ai-tools/{toolKey}
+  DELETE /api/v2/projects/{projectKey}/ai-tools/{toolKey}
+  GET    /api/v2/projects/{projectKey}/ai-tools/{toolKey}/references
+  GET    /api/v2/projects/{projectKey}/ai-tools/{toolKey}/versions
+
+---
+Category: persistent-store-integrations-beta
+---
+  GET    /api/v2/integration-capabilities/big-segment-store
+  GET    /api/v2/integration-capabilities/big-segment-store/{projectKey}/{environmentKey}/{integrationKey}/{integrationId}
+  POST   /api/v2/integration-capabilities/big-segment-store/{projectKey}/{environmentKey}/{integrationKey}
+  PATCH  /api/v2/integration-capabilities/big-segment-store/{projectKey}/{environmentKey}/{integrationKey}/{integrationId}
+  DELETE /api/v2/integration-capabilities/big-segment-store/{projectKey}/{environmentKey}/{integrationKey}/{integrationId}
+  GET    /api/v2/integration-capabilities/featureStore
+  GET    /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}
+  GET    /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}
+  POST   /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}
+  PATCH  /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}
+  DELETE /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}
+  POST   /api/v2/integration-capabilities/featureStore/{projectKey}/{environmentKey}/{integrationKey}/{id}/validate
+  GET    /api/v2/integration-capabilities/flag-import
+  GET    /api/v2/integration-capabilities/flag-import/{projectKey}/{integrationKey}/{integrationId}
+  POST   /api/v2/integration-capabilities/flag-import/{projectKey}/{integrationKey}
+  PATCH  /api/v2/integration-capabilities/flag-import/{projectKey}/{integrationKey}/{integrationId}
+  DELETE /api/v2/integration-capabilities/flag-import/{projectKey}/{integrationKey}/{integrationId}
+  POST   /api/v2/integration-capabilities/flag-import/{projectKey}/{integrationKey}/{integrationId}/trigger
+
+---
+Category: other
+---
+  GET    /api/v2/openapi.json
+  GET    /api/v2/versions
+  GET    /api/v2/caller-identity
+  GET    /api/v2/public-ip-list
+  GET    /api/v2/tags
+  GET    /api/v2/webhooks
+  POST   /api/v2/webhooks
+  GET    /api/v2/webhooks/{id}
+  PATCH  /api/v2/webhooks/{id}
+  DELETE /api/v2/webhooks/{id}
+  GET    /api/v2/templates
+  POST   /api/v2/templates
+  DELETE /api/v2/templates/{templateKey}
+  GET    /api/v2/account/ip-allowlist
+  POST   /api/v2/account/ip-allowlist
+  PATCH  /api/v2/account/ip-allowlist
+  DELETE /api/v2/account/ip-allowlist/{id}
+  PATCH  /api/v2/account/ip-allowlist/{id}
+  GET    /api/v2/account/relay-auto-configs
+  POST   /api/v2/account/relay-auto-configs
+  GET    /api/v2/account/relay-auto-configs/{id}
+  PATCH  /api/v2/account/relay-auto-configs/{id}
+  DELETE /api/v2/account/relay-auto-configs/{id}
+  POST   /api/v2/account/relay-auto-configs/{id}/reset
+  GET    /api/v2/applications
+  GET    /api/v2/applications/{applicationKey}
+  PATCH  /api/v2/applications/{applicationKey}
+  DELETE /api/v2/applications/{applicationKey}
+  GET    /api/v2/applications/{applicationKey}/versions
+  PATCH  /api/v2/applications/{applicationKey}/versions/{versionKey}
+  DELETE /api/v2/applications/{applicationKey}/versions/{versionKey}
+  GET    /api/v2/announcements
+  POST   /api/v2/announcements
+  PATCH  /api/v2/announcements/{announcementId}
+  DELETE /api/v2/announcements/{announcementId}
+  GET    /api/v2/code-refs/repositories
+  POST   /api/v2/code-refs/repositories
+  GET    /api/v2/code-refs/repositories/{repo}
+  PATCH  /api/v2/code-refs/repositories/{repo}
+  DELETE /api/v2/code-refs/repositories/{repo}
+  GET    /api/v2/code-refs/repositories/{repo}/branches
+  GET    /api/v2/code-refs/repositories/{repo}/branches/{branch}
+  PUT    /api/v2/code-refs/repositories/{repo}/branches/{branch}
+  POST   /api/v2/code-refs/repositories/{repo}/branches/{branch}/extinction-events
+  POST   /api/v2/code-refs/repositories/{repo}/branch-delete-tasks
+  GET    /api/v2/code-refs/extinctions
+  GET    /api/v2/code-refs/statistics
+  GET    /api/v2/code-refs/statistics/{projectKey}
+  GET    /api/v2/destinations
+  GET    /api/v2/destinations/{projectKey}/{environmentKey}/{id}
+  PATCH  /api/v2/destinations/{projectKey}/{environmentKey}/{id}
+  DELETE /api/v2/destinations/{projectKey}/{environmentKey}/{id}
+  POST   /api/v2/destinations/{projectKey}/{environmentKey}
+  POST   /api/v2/destinations/generate-warehouse-destination-key-pair
+  POST   /api/v2/destinations/projects/{projKey}/environments/{envKey}/generate-trust-policy
+  POST   /api/v2/destinations/projects/{projKey}/environments/{envKey}/generate-warehouse-destination-key-pair
+  POST   /api/v2/destinations/projects/{projKey}/environments/{envKey}/kinds/{kind}/setup
+  POST   /api/v2/destinations/projects/{projKey}/environments/{envKey}/kinds/{kind}/complete-setup
+  GET    /api/v2/oauth/clients
+  POST   /api/v2/oauth/clients
+  GET    /api/v2/oauth/clients/{clientId}
+  PATCH  /api/v2/oauth/clients/{clientId}
+  DELETE /api/v2/oauth/clients/{clientId}
+  GET    /api/v2/integrations/{integrationKey}
+  POST   /api/v2/integrations/{integrationKey}
+  GET    /api/v2/integrations/{integrationKey}/{id}
+  PATCH  /api/v2/integrations/{integrationKey}/{id}
+  DELETE /api/v2/integrations/{integrationKey}/{id}
+  GET    /api/v2/integration-configurations/keys/{integrationKey}
+  POST   /api/v2/integration-configurations/keys/{integrationKey}
+  GET    /api/v2/integration-configurations/{integrationConfigurationId}
+  PATCH  /api/v2/integration-configurations/{integrationConfigurationId}
+  DELETE /api/v2/integration-configurations/{integrationConfigurationId}
+  GET    /api/v2/projects/{projectKey}/experimentation-settings
+  PUT    /api/v2/projects/{projectKey}/experimentation-settings
+  GET    /api/v2/projects/{projectKey}/flag-defaults
+  PATCH  /api/v2/projects/{projectKey}/flag-defaults
+  PUT    /api/v2/projects/{projectKey}/flag-defaults
+  GET    /api/v2/projects/{projectKey}/layers
+  POST   /api/v2/projects/{projectKey}/layers
+  PATCH  /api/v2/projects/{projectKey}/layers/{layerKey}
+  GET    /api/v2/projects/{projectKey}/metric-groups
+  POST   /api/v2/projects/{projectKey}/metric-groups
+  GET    /api/v2/projects/{projectKey}/metric-groups/{metricGroupKey}
+  PATCH  /api/v2/projects/{projectKey}/metric-groups/{metricGroupKey}
+  DELETE /api/v2/projects/{projectKey}/metric-groups/{metricGroupKey}
+  GET    /api/v2/projects/{projectKey}/release-pipelines
+  POST   /api/v2/projects/{projectKey}/release-pipelines
+  GET    /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey}
+  PUT    /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey}
+  DELETE /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey}
+  GET    /api/v2/projects/{projectKey}/release-pipelines/{pipelineKey}/releases
+  GET    /api/v2/projects/{projectKey}/release-policies
+  POST   /api/v2/projects/{projectKey}/release-policies
+  GET    /api/v2/projects/{projectKey}/release-policies/{policyKey}
+  PUT    /api/v2/projects/{projectKey}/release-policies/{policyKey}
+  DELETE /api/v2/projects/{projectKey}/release-policies/{policyKey}
+  POST   /api/v2/projects/{projectKey}/release-policies/order
+  GET    /api/v2/projects/{projectKey}/views
+  POST   /api/v2/projects/{projectKey}/views
+  GET    /api/v2/projects/{projectKey}/views/{viewKey}
+  PATCH  /api/v2/projects/{projectKey}/views/{viewKey}
+  DELETE /api/v2/projects/{projectKey}/views/{viewKey}
+  GET    /api/v2/projects/{projectKey}/views/{viewKey}/linked/{resourceType}
+  POST   /api/v2/projects/{projectKey}/views/{viewKey}/link/{resourceType}
+  DELETE /api/v2/projects/{projectKey}/views/{viewKey}/link/{resourceType}
+  GET    /api/v2/projects/{projectKey}/view-associations/{resourceType}/{resourceKey}
+  GET    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers
+  PUT    /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers/{memberId}
+  DELETE /api/v2/projects/{projectKey}/flags/{featureFlagKey}/environments/{environmentKey}/followers/{memberId}
+  POST   /api/v2/projects/{projectKey}/flags/{flagKey}/environments/{environmentKey}/migration-safety-issues
+  GET    /api/v2/engineering-insights/deployments
+  GET    /api/v2/engineering-insights/deployments/{deploymentID}
+  PATCH  /api/v2/engineering-insights/deployments/{deploymentID}
+  POST   /api/v2/engineering-insights/deployment-events
+  GET    /api/v2/engineering-insights/flag-events
+  GET    /api/v2/engineering-insights/pull-requests
+  GET    /api/v2/engineering-insights/repositories
+  PUT    /api/v2/engineering-insights/repositories/projects
+  DELETE /api/v2/engineering-insights/repositories/{repositoryKey}/projects/{projectKey}
+  GET    /api/v2/engineering-insights/charts/deployments/frequency
+  GET    /api/v2/engineering-insights/charts/flags/stale
+  GET    /api/v2/engineering-insights/charts/flags/status
+  GET    /api/v2/engineering-insights/charts/lead-time
+  GET    /api/v2/engineering-insights/charts/releases/frequency
+  GET    /api/v2/engineering-insights/insights/groups
+  GET    /api/v2/engineering-insights/insights/groups/{insightGroupKey}
+  PATCH  /api/v2/engineering-insights/insights/groups/{insightGroupKey}
+  DELETE /api/v2/engineering-insights/insights/groups/{insightGroupKey}
+  POST   /api/v2/engineering-insights/insights/group
+  GET    /api/v2/engineering-insights/insights/scores
+  GET    /api/v2/usage/mau
+  GET    /api/v2/usage/mau/bycategory
+  GET    /api/v2/usage/mau/sdks
+  GET    /api/v2/usage/total-mau
+  GET    /api/v2/usage/total-contexts
+  GET    /api/v2/usage/clientside-mau
+  GET    /api/v2/usage/clientside-contexts
+  GET    /api/v2/usage/serverside-contexts
+  GET    /api/v2/usage/evaluations/{projectKey}/{environmentKey}/{featureFlagKey}
+  GET    /api/v2/usage/events/{type}
+  GET    /api/v2/usage/streams/{source}
+  GET    /api/v2/usage/streams/{source}/bysdkversion
+  GET    /api/v2/usage/streams/{source}/sdkversions
+  GET    /api/v2/usage/data-export-events
+  GET    /api/v2/usage/experimentation-events
+  GET    /api/v2/usage/experimentation-keys
+  GET    /api/v2/usage/service-connections
+  GET    /api/v2/usage/sdk-versions/all
+  GET    /api/v2/usage/sdk-versions/details
+  GET    /api/v2/usage/observability/errors
+  GET    /api/v2/usage/observability/logs
+  GET    /api/v2/usage/observability/metrics
+  GET    /api/v2/usage/observability/sessions
+  GET    /api/v2/usage/observability/traces
+  GET    /api/v2/usage/ai-runs
+  GET    /api/v2/usage/vega-ai
+
+Total endpoints: 379
+Categories: 20
